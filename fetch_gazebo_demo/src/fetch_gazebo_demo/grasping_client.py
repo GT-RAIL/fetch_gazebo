@@ -10,10 +10,28 @@ from moveit_python import (MoveGroupInterface,
                            PlanningSceneInterface,
                            PickPlaceInterface)
 from moveit_python.geometry import rotate_pose_msg_by_euler_angles
-from grasping_msgs.msg import FindGraspableObjectsAction, FindGraspableObjectsGoal
+
+from grasping_msgs.msg import (FindGraspableObjectsAction,
+                               FindGraspableObjectsGoal)
+from shape_msgs.msg import SolidPrimitive
 from moveit_msgs.msg import PlaceLocation, MoveItErrorCodes
 
 
+# Defaults
+DEFAULT_CUBE_BOUNDS = {
+    "xmin": 0.05, "xmax": 0.07,
+    "ymin": 0.05, "ymax": 0.07,
+    "zmin": 0.05, "zmax": 0.07,
+}
+
+DEFAULT_CUBE_LOCATION = {
+    "xmin": float('-inf'), "xmax": float('inf'),
+    "ymin": float('-inf'), "ymax": float('inf'),
+    "zmin": 0.5, "zmax": float('inf'),
+}
+
+
+# The actual client
 class GraspingClient(object):
 
     def __init__(self):
@@ -76,24 +94,30 @@ class GraspingClient(object):
         self.objects = [obj[0] for obj in objects]
         self.surfaces = find_result.support_surfaces
 
-    def getGraspableCube(self):
+    def getGraspableCube(self, bounds=DEFAULT_CUBE_BOUNDS, location=DEFAULT_CUBE_LOCATION):
         graspable = None
         for obj in self.objects:
             # need grasps
             if len(obj.grasps) < 1:
                 continue
-            # check size
-            if obj.object.primitives[0].dimensions[0] < 0.05 or \
-               obj.object.primitives[0].dimensions[0] > 0.07 or \
-               obj.object.primitives[0].dimensions[0] < 0.05 or \
-               obj.object.primitives[0].dimensions[0] > 0.07 or \
-               obj.object.primitives[0].dimensions[0] < 0.05 or \
-               obj.object.primitives[0].dimensions[0] > 0.07:
+            # check size and type
+            if obj.object.primitives[0].type != SolidPrimitive.BOX:
+                continue
+            if obj.object.primitives[0].dimensions[0] < bounds["xmin"] or \
+               obj.object.primitives[0].dimensions[0] > bounds["xmax"] or \
+               obj.object.primitives[0].dimensions[1] < bounds["ymin"] or \
+               obj.object.primitives[0].dimensions[1] > bounds["ymax"] or \
+               obj.object.primitives[0].dimensions[2] < bounds["zmin"] or \
+               obj.object.primitives[0].dimensions[2] > bounds["zmax"]:
                 continue
             # has to be on table
-            if obj.object.primitive_poses[0].position.z < 0.5:
+            if obj.object.primitive_poses[0].position.x < location["xmin"] or \
+               obj.object.primitive_poses[0].position.x > location["xmax"] or \
+               obj.object.primitive_poses[0].position.y < location["ymin"] or \
+               obj.object.primitive_poses[0].position.y > location["ymax"] or \
+               obj.object.primitive_poses[0].position.z < location["zmin"] or \
+               obj.object.primitive_poses[0].position.z > location["zmax"]:
                 continue
-            print obj.object.primitive_poses[0], obj.object.primitives[0]
             return obj.object, obj.grasps
         # nothing detected
         return None, None
