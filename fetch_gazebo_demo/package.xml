@@ -10,7 +10,7 @@
   <maintainer email="selliott@fetchrobotics.com">Sarah Elliott</maintainer>
   <license>BSD</license>
   <url>http://ros.org/wiki/fetch_gazebo_demo</url>
-  
+
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>actionlib</run_depend>
@@ -19,6 +19,7 @@
   <run_depend>fetch_navigation</run_depend>
   <run_depend>moveit_commander</run_depend>
   <run_depend>moveit_python</run_depend>
+  <run_depend>rospy</run_depend>
   <run_depend>simple_grasping</run_depend>
   <run_depend>teleop_twist_keyboard</run_depend>
 </package>

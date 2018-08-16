@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.7.2)
 project(fetch_gazebo_demo)
 
-find_package(catkin)
+find_package(catkin REQUIRED COMPONENTS
+  rospy
+)
+catkin_python_setup()
 catkin_package()
 
 install(
