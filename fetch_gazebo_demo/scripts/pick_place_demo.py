@@ -33,6 +33,7 @@ import rospy
 
 from geometry_msgs.msg import PoseStamped
 
+from moveit_python import PlanningSceneInterface
 from fetch_gazebo_demo import PointHeadClient, GraspingClient
 
 
@@ -45,8 +46,9 @@ if __name__ == "__main__":
         pass
 
     # Setup clients
+    scene = PlanningSceneInterface("base_link")
     head_action = PointHeadClient()
-    grasping_client = GraspingClient()
+    grasping_client = GraspingClient(scene)
     cube_in_grapper = False
     grasping_client.stow()
 

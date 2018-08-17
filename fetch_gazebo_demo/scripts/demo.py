@@ -33,6 +33,7 @@ import rospy
 
 from geometry_msgs.msg import PoseStamped
 
+from moveit_python import PlanningSceneInterface
 from fetch_gazebo_demo import (MoveBaseClient,
                                FollowTrajectoryClient,
                                PointHeadClient,
@@ -51,7 +52,8 @@ if __name__ == "__main__":
     move_base = MoveBaseClient()
     torso_action = FollowTrajectoryClient("torso_controller", ["torso_lift_joint"])
     head_action = PointHeadClient()
-    grasping_client = GraspingClient()
+    scene = PlanningSceneInterface("base_link")
+    grasping_client = GraspingClient(scene)
 
     # Move the base to be in front of the table
     # Demonstrates the use of the navigation stack
