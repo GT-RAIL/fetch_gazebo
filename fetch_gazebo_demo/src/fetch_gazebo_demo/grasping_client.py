@@ -136,19 +136,18 @@ class GraspingClient(object):
                                                               grasps,
                                                               support_name=block.support_surface,
                                                               scene=self.scene)
-        self.pick_result = pick_result
-        return success
+        return success, pick_result
 
-    def place(self, block, pose_stamped):
+    def place(self, block, pose_stamped, pick_result):
         places = list()
         l = PlaceLocation()
         l.place_pose.pose = pose_stamped.pose
         l.place_pose.header.frame_id = pose_stamped.header.frame_id
 
         # copy the posture, approach and retreat from the grasp used
-        l.post_place_posture = self.pick_result.grasp.pre_grasp_posture
-        l.pre_place_approach = self.pick_result.grasp.pre_grasp_approach
-        l.post_place_retreat = self.pick_result.grasp.post_grasp_retreat
+        l.post_place_posture = pick_result.grasp.pre_grasp_posture
+        l.pre_place_approach = pick_result.grasp.pre_grasp_approach
+        l.post_place_retreat = pick_result.grasp.post_grasp_retreat
         places.append(copy.deepcopy(l))
         # create another several places, rotate each by 360/m degrees in yaw direction
         m = 16 # number of possible place poses
