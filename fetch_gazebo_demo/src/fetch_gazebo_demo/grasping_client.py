@@ -6,9 +6,7 @@ import copy
 import rospy
 import actionlib
 
-from moveit_python import (MoveGroupInterface,
-                           PlanningSceneInterface,
-                           PickPlaceInterface)
+from moveit_python import MoveGroupInterface, PickPlaceInterface
 from moveit_python.geometry import rotate_pose_msg_by_euler_angles
 
 from grasping_msgs.msg import (FindGraspableObjectsAction,
@@ -34,8 +32,8 @@ DEFAULT_CUBE_LOCATION = {
 # The actual client
 class GraspingClient(object):
 
-    def __init__(self):
-        self.scene = PlanningSceneInterface("base_link")
+    def __init__(self, scene):
+        self.scene = scene
         self.pickplace = PickPlaceInterface("arm", "gripper", verbose=True)
         self.move_group = MoveGroupInterface("arm", "base_link")
 
