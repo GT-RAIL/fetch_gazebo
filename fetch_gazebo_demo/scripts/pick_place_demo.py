@@ -66,7 +66,8 @@ if __name__ == "__main__":
                 continue
 
             # Pick the block
-            if grasping_client.pick(cube, grasps):
+            success, pick_result = grasping_client.pick(cube, grasps)
+            if success:
                 cube_in_grapper = True
                 break
             rospy.logwarn("Grasping failed.")
@@ -84,7 +85,7 @@ if __name__ == "__main__":
             pose.pose.position.y *= -1.0
             pose.pose.position.z += 0.02
             pose.header.frame_id = cube.header.frame_id
-            if grasping_client.place(cube, pose):
+            if grasping_client.place(cube, pose, pick_result):
                 cube_in_grapper = False
                 break
             rospy.logwarn("Placing failed.")
