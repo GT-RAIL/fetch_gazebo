@@ -11,8 +11,9 @@ class PointHeadClient(object):
 
     def __init__(self):
         self.client = actionlib.SimpleActionClient("head_controller/point_head", PointHeadAction)
-        rospy.loginfo("Waiting for head_controller...")
+        rospy.loginfo("Connecting to head_controller...")
         self.client.wait_for_server()
+        rospy.loginfo("...head_controller connected")
 
     def look_at(self, x, y, z, frame, duration=1.0):
         goal = PointHeadGoal()

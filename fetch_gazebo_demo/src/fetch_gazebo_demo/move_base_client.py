@@ -13,8 +13,9 @@ class MoveBaseClient(object):
 
     def __init__(self):
         self.client = actionlib.SimpleActionClient("move_base", MoveBaseAction)
-        rospy.loginfo("Waiting for move_base...")
+        rospy.loginfo("Connecting to move_base...")
         self.client.wait_for_server()
+        rospy.loginfo("...move_base connected")
 
     def goto(self, x, y, theta, frame="map"):
         move_goal = MoveBaseGoal()
