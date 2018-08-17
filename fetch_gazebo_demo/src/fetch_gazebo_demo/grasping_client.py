@@ -40,9 +40,10 @@ class GraspingClient(object):
         self.move_group = MoveGroupInterface("arm", "base_link")
 
         find_topic = "basic_grasping_perception/find_objects"
-        rospy.loginfo("Waiting for %s..." % find_topic)
+        rospy.loginfo("Connecting to %s..." % find_topic)
         self.find_client = actionlib.SimpleActionClient(find_topic, FindGraspableObjectsAction)
         self.find_client.wait_for_server()
+        rospy.loginfo("...%s connected" % find_topic)
 
     def updateScene(self):
         # find objects

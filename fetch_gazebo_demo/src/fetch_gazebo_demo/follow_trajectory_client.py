@@ -13,9 +13,10 @@ class FollowTrajectoryClient(object):
     def __init__(self, name, joint_names):
         self.client = actionlib.SimpleActionClient("%s/follow_joint_trajectory" % name,
                                                    FollowJointTrajectoryAction)
-        rospy.loginfo("Waiting for %s..." % name)
+        rospy.loginfo("Connecting to %s..." % name)
         self.client.wait_for_server()
         self.joint_names = joint_names
+        rospy.loginfo("...%s connected" % name)
 
     def move_to(self, positions, duration=5.0):
         if len(self.joint_names) != len(positions):
