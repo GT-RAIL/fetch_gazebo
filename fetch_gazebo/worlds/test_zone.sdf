@@ -62,6 +62,36 @@
     </include>
     -->
 
+    <!-- Distractor Cube 1 -->
+    <!--
+    <include>
+      <uri>model://distractor_cube</uri>
+      <name>dcube1</name>
+      <pose>3.8 3.15 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.8 3.15 1.04 0 0 0</pose>
+    </include>
+    -->
+
+    <!-- Person in doorway 1 -->
+    <!--
+    <include>
+      <uri>model://person_standing</uri>
+      <name>person1</name>
+      <pose>-0.21 2.22 0 0 0 1.57</pose>
+    </include>
+    -->
+    <!--
+    <include>
+      <uri>model://person_standing</uri>
+      <name>person1</name>
+      <pose>-0.75 2.22 0 0 0 1.57</pose>
+    </include>
+    -->
+
     <!-- Cube 2 positions. The first position is default -->
     <include>
       <uri>model://demo_cube</uri>
