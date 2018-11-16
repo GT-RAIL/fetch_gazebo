@@ -93,6 +93,8 @@
     -->
 
     <!-- Cube 2 positions. The first position is default -->
+    <!--
+    -->
     <include>
       <uri>model://demo_cube</uri>
       <name>cube2</name>
@@ -102,32 +104,55 @@
     <include>
       <uri>model://demo_cube</uri>
       <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -4.15 0.83 1.57 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -4.15 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.24 -4.05 0.83 1.57 0 0.78</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -4.15 0.83 0 0 0.78</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.24 -4.05 0.83 0 1.57 0</pose>
+    </include>
+    -->
+
+    <!-- Distractor Cube 2 -->
+    <!--
+    <include>
+      <uri>model://distractor_cube</uri>
+      <name>dcube2</name>
       <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
     </include>
     <include>
       <uri>model://demo_cube</uri>
       <name>cube2</name>
-      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+      <pose>-3.34 -3.85 1.04 1.57 0 0</pose>
     </include>
+    -->
+
+    <!-- Person in doorway 2 -->
+    <!--
     <include>
-      <uri>model://demo_cube</uri>
-      <name>cube2</name>
-      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
-    </include>
-    <include>
-      <uri>model://demo_cube</uri>
-      <name>cube2</name>
-      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
-    </include>
-    <include>
-      <uri>model://demo_cube</uri>
-      <name>cube2</name>
-      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
-    </include>
-    <include>
-      <uri>model://demo_cube</uri>
-      <name>cube2</name>
-      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+      <uri>model://person_standing</uri>
+      <name>person1</name>
+      <pose>-5 -1 0 0 0 3.14</pose>
     </include>
     -->
   </world>
