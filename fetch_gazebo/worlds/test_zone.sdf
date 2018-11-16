@@ -20,15 +20,85 @@
       <name>table2</name>
       <pose>-3 -4 0 0 0 1.57</pose>
     </include>
+
+    <!-- Cube 1 positions. The first position is default -->
+    <!--
+    -->
     <include>
       <uri>model://demo_cube</uri>
       <name>cube1</name>
       <pose>3.8 3.15 0.83 0 0 0</pose>
+    </include>
+    <!--
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.7 3.05 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.8 3.15 0.83 1.57 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.8 3.15 0.83 0 1.57 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.8 3.15 0.83 -1.57 0 0.78</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.7 3.05 0.83 1.57 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube1</name>
+      <pose>3.7 3.05 0.83 0 1.57 -0.39</pose>
+    </include>
+    -->
+
+    <!-- Cube 2 positions. The first position is default -->
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+    </include>
+    <!--
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
     </include>
     <include>
       <uri>model://demo_cube</uri>
       <name>cube2</name>
       <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
     </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+    </include>
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+    </include>
+    -->
   </world>
 </sdf>
