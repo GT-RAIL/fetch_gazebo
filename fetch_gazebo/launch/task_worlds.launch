@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <env name="GAZEBO_MODEL_PATH" value="$(find fetch_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+
+  <!-- Gazebo world args -->
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+
+  <!-- Task world args -->
+  <arg name="task" />
+  <arg name="loc" /> <!-- 0, 1, 2 -->
+  <arg name="distractor" /> <!-- 0 - none, 1 - only distractor, 2 - on top of distractor -->
+  <arg name="doorway" /> <!-- 0 - none blocked, 1 - 1 blocked, 2 - 2 blocked -->
+
+  <!-- Derived task zone -->
+  <arg name="zone" value="task_$(arg task)_$(arg loc)_$(arg distractor)_$(arg doorway)_zone.sdf" />
+
+  <!-- Start Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="world_name" value="$(find fetch_gazebo)/worlds/$(arg zone)"/>
+  </include>
+
+  <!-- Oh, you wanted a robot? -->
+  <include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml" />
+
+</launch>

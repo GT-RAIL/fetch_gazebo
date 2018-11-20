@@ -20,10 +20,26 @@
       <name>table2</name>
       <pose>-3 -4 0 0 0 1.57</pose>
     </include>
+
+    <!-- Cube 1 position -->
     <include>
-      <uri>model://demo_cube</uri>
+      <uri>model://bracket</uri>
       <name>cube1</name>
-      <pose>3.8 3.15 0.83 0 0 0</pose>
+      <pose>3.8 3.15 0.83 0 0 0.78</pose>
+    </include>
+
+    <!-- Cube 2 position -->
+    <include>
+      <uri>model://bracket</uri>
+      <name>cube2</name>
+      <pose>-3.24 -4.05 0.83 0 0 -0.78</pose>
+    </include>
+
+    <!-- Person in doorway 1 -->
+    <include>
+      <uri>model://person_standing</uri>
+      <name>person1</name>
+      <pose>-0.21 2.22 0 0 0 1.57</pose>
     </include>
   </world>
 </sdf>

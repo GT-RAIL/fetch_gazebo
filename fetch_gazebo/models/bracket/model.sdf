@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version='1.4'>
-  <model name="thin_cube">
+  <model name="bracket">
       <static>0</static>
       <link name='link'>
         <inertial>
