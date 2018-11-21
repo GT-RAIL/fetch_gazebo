@@ -10,9 +10,12 @@
 
   <!-- Task world args -->
   <arg name="task" />
-  <arg name="loc" /> <!-- 0, 1, 2 -->
-  <arg name="distractor" /> <!-- 0 - none, 1 - only distractor, 2 - on top of distractor -->
-  <arg name="doorway" /> <!-- 0 - none blocked, 1 - 1 blocked, 2 - 2 blocked -->
+  <!-- 0, 1, 2 -->
+  <arg name="loc" />
+  <!-- 0 - none, 1 - only distractor, 2 - on top of distractor, 3 - distractors at place -->
+  <arg name="distractor" />
+  <!-- 0 - none blocked, 1 - 1 blocked, 2 - 2 blocked -->
+  <arg name="doorway" />
 
   <!-- Derived task zone -->
   <arg name="zone" value="task_$(arg task)_$(arg loc)_$(arg distractor)_$(arg doorway)_zone.sdf" />

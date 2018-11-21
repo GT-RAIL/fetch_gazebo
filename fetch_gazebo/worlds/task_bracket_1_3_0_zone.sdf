@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://test_zone</uri>
+    </include>
+    <include>
+      <uri>model://cafe_table</uri>
+      <name>table1</name>
+      <pose>4.05 3 0 0 0 1.57</pose>
+    </include>
+    <include>
+      <uri>model://cafe_table</uri>
+      <name>table2</name>
+      <pose>-3 -4 0 0 0 1.57</pose>
+    </include>
+
+    <!-- Cube 1 position -->
+    <include>
+      <uri>model://bracket</uri>
+      <name>cube1</name>
+      <pose>3.8 3.15 0.83 0 0 0</pose>
+    </include>
+
+    <!-- Cube 2 position -->
+    <include>
+      <uri>model://bracket</uri>
+      <name>cube2</name>
+      <pose>-3.34 -3.85 0.83 1.57 0 0</pose>
+    </include>
+
+    <!-- Put in the bowls at the place location -->
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.5 2.92 0.83 0 0 0</pose>
+      <name>bowl1</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.25 2.92 0.83 0 0 0</pose>
+      <name>bowl2</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.75 2.92 0.83 0 0 0</pose>
+      <name>bowl3</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.5 2.67 0.83 0 0 0</pose>
+      <name>bowl4</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.5 3.17 0.83 0 0 0</pose>
+      <name>bowl5</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.25 3.17 0.83 0 0 0</pose>
+      <name>bowl6</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.25 2.67 0.83 0 0 0</pose>
+      <name>bowl7</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.75 3.17 0.83 0 0 0</pose>
+      <name>bowl8</name>
+    </include>
+    <include>
+      <uri>model://bowl</uri>
+      <pose>-5.75 2.67 0.83 0 0 0</pose>
+      <name>bowl9</name>
+    </include>
+  </world>
+</sdf>
