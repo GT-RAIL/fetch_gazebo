@@ -18,7 +18,7 @@
           <pose>-0.035 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.003 0.070 0.070</size>
+              <size>0.006 0.070 0.070</size>
             </box>
           </geometry>
           <surface>
@@ -42,7 +42,7 @@
           <pose>0 0 -0.035 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.070 0.070 0.003</size>
+              <size>0.070 0.070 0.006</size>
             </box>
           </geometry>
           <surface>
@@ -63,10 +63,10 @@
           </surface>
         </collision>
         <visual name='visual1'>
-          <pose>-0.030 0 0 0 0 0</pose>
+          <pose>-0.035 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.003 0.060 0.060</size>
+              <size>0.006 0.070 0.070</size>
             </box>
           </geometry>
           <material>
@@ -77,10 +77,10 @@
           </material>
         </visual>
         <visual name='visual2'>
-          <pose>0 0 -0.030 0 0 0</pose>
+          <pose>0 0 -0.035 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.060 0.060 0.003</size>
+              <size>0.070 0.070 0.006</size>
             </box>
           </geometry>
           <material>
