@@ -57,9 +57,9 @@ class LookAwayServer(object):
         self._trace_sub = rospy.Subscriber(Tracer.EXECUTION_TRACE_TOPIC, ExecutionEvent, self._on_trace)
 
     def _on_trace(self, msg):
-        if not(msg.type == ExecutionEvent.TASK_STEP_EVENT
-               and msg.name == LookAwayServer.WAIT_ACTION_NAME
-               and msg.task_step_metadata.status == GoalStatus.ACTIVE):
+        if not (msg.type == ExecutionEvent.TASK_STEP_EVENT
+                and msg.name == LookAwayServer.WAIT_ACTION_NAME
+                and msg.task_step_metadata.status == GoalStatus.ACTIVE):
             return
 
         if self._reset_timer is None:
