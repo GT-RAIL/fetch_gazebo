@@ -5,11 +5,14 @@
   <arg name="z" default="0.0" />
   <arg name="yaw" default="0.0" />
 
+  <arg name="use_depth" default="true" />
+
   <!-- Setup controllers -->
   <rosparam file="$(find fetch_gazebo)/config/default_controllers.yaml" command="load" />
 
   <!-- URDF and TF support -->
-  <param name="robot_description" command="$(find xacro)/xacro.py $(find fetch_gazebo)/robots/fetch.gazebo.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find fetch_gazebo)/robots/fetch.gazebo.xacro" if="$(arg use_depth)" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find fetch_gazebo)/robots/fetch_nodepth.gazebo.xacro" unless="$(arg use_depth)" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
     <param name="publish_frequency" value="100.0"/>
   </node>

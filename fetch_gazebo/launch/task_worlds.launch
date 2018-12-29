@@ -8,17 +8,27 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
 
-  <!-- Task world args -->
-  <arg name="task" />
-  <!-- 0, 1, 2 -->
-  <arg name="loc" />
-  <!-- 0 - none, 1 - only distractor, 2 - on top of distractor, 3 - distractors at place -->
-  <arg name="distractor" />
-  <!-- 0 - none blocked, 1 - 1 blocked, 2 - 2 blocked -->
-  <arg name="doorway" />
+  <!-- Task world args. These correspond to options in annotations.py -->
+
+  <!-- OBJECT_NAME_OPTIONS -->
+  <arg name="object_name" default="cube" />
+
+  <!-- OBJECT_LOCATION_IDX -->
+  <arg name="object_location" default="0" />
+
+  <!-- PICKUP_DISTRACTION_OPTIONS | PLACE_DISTRACTION_OPTIONS -->
+  <arg name="pickup_distractor" default="none" />
+  <arg name="place_distractor" default="none" />
+
+  <!-- Boolean Flags -->
+  <arg name="door_blocked" default="false" />
+  <arg name="door_block_invisible" default="false" />
+  <arg name="base_stalled" default="false" />
+  <arg name="hardware_failure" default="false" />
 
   <!-- Derived task zone -->
-  <arg name="zone" value="task_$(arg task)_$(arg loc)_$(arg distractor)_$(arg doorway)_zone.sdf" />
+  <arg name="zone"
+       value="$(arg object_name)_$(arg object_location)_$(arg pickup_distractor)_$(arg place_distractor)_$(arg door_blocked)_$(arg door_block_invisible)_$(arg base_stalled)_zone.sdf" />
 
   <!-- Start Gazebo -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -31,6 +41,9 @@
   </include>
 
   <!-- Oh, you wanted a robot? -->
-  <include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml" />
+  <include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml">
+    <arg name="use_depth" value="true" unless="$(arg hardware_failure)" />
+    <arg name="use_depth" value="false" if="$(arg hardware_failure)" />
+  </include>
 
 </launch>
