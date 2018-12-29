@@ -14,11 +14,11 @@
   <arg name="object_name" default="cube" />
 
   <!-- OBJECT_LOCATION_IDX -->
-  <arg name="object_location" default="0" />
+  <arg name="object_location_idx" default="0" />
 
   <!-- PICKUP_DISTRACTION_OPTIONS | PLACE_DISTRACTION_OPTIONS -->
-  <arg name="pickup_distractor" default="none" />
-  <arg name="place_distractor" default="none" />
+  <arg name="pickup_distraction" default="none" />
+  <arg name="place_distraction" default="none" />
 
   <!-- Boolean Flags -->
   <arg name="door_blocked" default="false" />
@@ -26,9 +26,30 @@
   <arg name="base_stalled" default="false" />
   <arg name="hardware_failure" default="false" />
 
+  <arg name="head_moved" default="false" />
+  <arg name="base_moved_back" default="false" />
+  <arg name="base_collided" default="false" />
+  <arg name="incorrect_map" default="false" />
+
   <!-- Derived task zone -->
   <arg name="zone"
-       value="$(arg object_name)_$(arg object_location)_$(arg pickup_distractor)_$(arg place_distractor)_$(arg door_blocked)_$(arg door_block_invisible)_$(arg base_stalled)_zone.sdf" />
+       value="$(arg object_name)_$(arg object_location_idx)_$(arg pickup_distraction)_$(arg place_distraction)_$(arg door_blocked)_$(arg door_block_invisible)_$(arg base_stalled)_zone.sdf" />
+
+  <!-- Set the simulation params -->
+  <group ns="/bag_context">
+    <param name="object_name" value="$(arg object_name)" />
+    <param name="object_location_idx" value="$(arg object_location_idx)" />
+    <param name="pickup_distraction" value="$(arg pickup_distraction)" />
+    <param name="place_distraction" value="$(arg place_distraction)" />
+    <param name="door_blocked" value="$(arg door_blocked)" />
+    <param name="door_block_invisible" value="$(arg door_block_invisible)" />
+    <param name="head_moved" value="$(arg head_moved)" />
+    <param name="base_moved_back" value="$(arg base_moved_back)" />
+    <param name="base_stalled" value="$(arg base_stalled)" />
+    <param name="base_collided" value="$(arg base_collided)" />
+    <param name="incorrect_map" value="$(arg incorrect_map)" />
+    <param name="hardware_failure" value="$(arg hardware_failure)" />
+  </group>
 
   <!-- Start Gazebo -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
