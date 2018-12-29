@@ -67,4 +67,7 @@
     <arg name="use_depth" value="false" if="$(arg hardware_failure)" />
   </include>
 
+  <!-- We also want to mess with the robot now and then -->
+  <node name="look_away_server" pkg="fetch_gazebo" type="look_away_server.py" if="$(arg head_moved)" />
+
 </launch>
