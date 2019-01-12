@@ -72,4 +72,11 @@
   <node name="move_back_server" pkg="fetch_gazebo" type="move_back.py" if="$(arg base_moved_back)" />
   <node name="collide_robot_server" pkg="fetch_gazebo" type="collide_robot.py" if="$(arg base_collided)" />
 
+  <!-- Mislocalization -->
+  <rosparam param="amcl" if="$(arg incorrect_map)">
+    initial_pose_x: -3.25
+    initial_pose_y: 8.05
+    initial_pose_a: 1.57
+  </rosparam>
+
 </launch>

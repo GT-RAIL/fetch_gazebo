@@ -51,7 +51,8 @@ class CollideRobotServer(object):
     def spin(self):
         rate = rospy.Rate(CollideRobotServer.CMD_VEL_FREQUENCY)
         while not rospy.is_shutdown():
-            if rospy.Time.now() <= self._move_start_time + CollideRobotServer.COLLISION_DURATION:
+            if rospy.Time.now() <= self._move_start_time + CollideRobotServer.COLLISION_DURATION \
+                    and self._move_start_time > rospy.Time(0):
                 msg = Twist()
                 msg.linear.x = CollideRobotServer.CMD_VEL_MAGNITUDE
                 self._vel_pub.publish(msg)
