@@ -29,34 +29,35 @@
     </include>
     <include>
       <uri>model://bowl</uri>
-      <pose>3.85 3.15 0.83 0 0 0</pose>
+      <pose>4.05 3.15 0.83 0 0 0</pose>
       <name>bowl2</name>
     </include>
     <include>
       <uri>model://bowl</uri>
-      <pose>3.80 3.10 0.83 0 0 0</pose>
+      <pose>3.80 2.90 0.83 0 0 0</pose>
       <name>bowl4</name>
     </include>
     <include>
       <uri>model://bowl</uri>
-      <pose>3.85 3.10 0.83 0 0 0</pose>
+      <pose>4.05 2.90 0.83 0 0 0</pose>
       <name>bowl5</name>
     </include>
+    <!--
     <include>
       <uri>model://bowl</uri>
-      <pose>3.80 3.05 0.83 0 0 0</pose>
+      <pose>3.80 2.85 0.83 0 0 0</pose>
       <name>bowl6</name>
     </include>
     <include>
       <uri>model://bowl</uri>
-      <pose>3.85 3.05 0.83 0 0 0</pose>
+      <pose>3.95 2.85 0.83 0 0 0</pose>
       <name>bowl7</name>
     </include>
-
+    -->
     <include>
       <uri>model://demo_cube</uri>
       <name>cube1</name>
-      <pose>3.8 3.15 0.87 -1.57 0 0.78</pose>
+      <pose>3.80 3.15 1.5 -1.57 0 0.78</pose>
     </include>
 
     <!-- Cube 2 position -->
