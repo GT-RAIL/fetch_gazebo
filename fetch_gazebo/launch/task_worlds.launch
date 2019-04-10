@@ -31,6 +31,11 @@
   <arg name="base_collided" default="false" />
   <arg name="incorrect_map" default="false" />
 
+  <!-- Robot positions -->
+  <arg name="initial_pose_x" default="0.0" />
+  <arg name="initial_pose_y" default="0.0" />
+  <arg name="initial_pose_a" default="0.0" />
+
   <!-- Derived task zone -->
   <arg name="zone"
        value="$(arg object_name)_$(arg object_location_idx)_$(arg pickup_distraction)_$(arg place_distraction)_$(arg door_blocked)_$(arg door_block_invisible)_$(arg base_stalled)_zone.sdf" />
@@ -65,18 +70,28 @@
   <include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml">
     <arg name="use_depth" value="true" unless="$(arg hardware_failure)" />
     <arg name="use_depth" value="false" if="$(arg hardware_failure)" />
-  </include>
+
+    <!-- Randomize the location -->
+    <arg name="x" value="$(arg initial_pose_x)" unless="$(arg incorrect_map)" />
+    <arg name="y" value="$(arg initial_pose_y)" unless="$(arg incorrect_map)" />
+    <arg name="yaw" value="$(arg initial_pose_a)" unless="$(arg incorrect_map)" />
+ </include>
 
   <!-- We also want to mess with the robot now and then -->
   <node name="look_away_server" pkg="fetch_gazebo" type="look_away.py" if="$(arg head_moved)" />
   <node name="move_back_server" pkg="fetch_gazebo" type="move_back.py" if="$(arg base_moved_back)" />
   <node name="collide_robot_server" pkg="fetch_gazebo" type="collide_robot.py" if="$(arg base_collided)" />
 
-  <!-- Mislocalization -->
+  <!-- (Mis)Localization -->
   <rosparam param="amcl" if="$(arg incorrect_map)">
     initial_pose_x: -3.25
     initial_pose_y: 8.05
     initial_pose_a: 1.57
   </rosparam>
+  <group ns="amcl" unless="$(arg incorrect_map)">
+    <param name="initial_pose_x" value="$(arg initial_pose_x)" />
+    <param name="initial_pose_y" value="$(arg initial_pose_y)" />
+    <param name="initial_pose_a" value="$(arg initial_pose_a)" />
+  </group>
 
 </launch>

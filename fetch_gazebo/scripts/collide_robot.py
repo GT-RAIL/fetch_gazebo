@@ -3,6 +3,8 @@
 
 from __future__ import print_function, division
 
+import numpy as np
+
 import rospy
 
 from geometry_msgs.msg import Twist
@@ -19,12 +21,13 @@ class CollideRobotServer(object):
     Move forward and collide the robot when departing
     """
 
-    DEPART_ACTION_NAME = 'depart'
-    COLLISION_DURATION = rospy.Duration(15.0)
+    COLLISION_ACTION_NAME = 'setup'
+    COLLISION_LINEAR_DURATION = rospy.Duration(13.0 + (2 * np.random.rand()))
+    COLLISION_ANGULAR_DURATION = rospy.Duration(2.0 + (4 * np.random.rand()))
 
     CMD_VEL_TOPIC = '/cmd_vel'
-    CMD_VEL_MAGNITUDE = 0.6
-    CMD_VEL_FREQUENCY = 10.0
+    CMD_VEL_MAGNITUDE = (0.4 + (0.4 * np.random.rand()))
+    CMD_VEL_FREQUENCY = 20.0
 
     def __init__(self):
         # Setup the publisher
@@ -38,8 +41,8 @@ class CollideRobotServer(object):
 
     def _on_trace(self, msg):
         if not (msg.type == ExecutionEvent.TASK_STEP_EVENT
-                and msg.name == CollideRobotServer.DEPART_ACTION_NAME
-                and msg.task_step_metadata.status == GoalStatus.SUCCEEDED):
+                and msg.name == CollideRobotServer.COLLISION_ACTION_NAME
+                and msg.task_step_metadata.status == GoalStatus.ACTIVE):
             return
 
         if self._move_start_time > rospy.Time(0):
@@ -51,7 +54,14 @@ class CollideRobotServer(object):
     def spin(self):
         rate = rospy.Rate(CollideRobotServer.CMD_VEL_FREQUENCY)
         while not rospy.is_shutdown():
-            if rospy.Time.now() <= self._move_start_time + CollideRobotServer.COLLISION_DURATION \
+            if rospy.Time.now() <= self._move_start_time + CollideRobotServer.COLLISION_ANGULAR_DURATION \
+                    and self._move_start_time > rospy.Time(0):
+                msg = Twist()
+                msg.angular.z = CollideRobotServer.CMD_VEL_MAGNITUDE
+                self._vel_pub.publish(msg)
+            elif rospy.Time.now() <= (self._move_start_time
+                                      + CollideRobotServer.COLLISION_ANGULAR_DURATION
+                                      + CollideRobotServer.COLLISION_LINEAR_DURATION) \
                     and self._move_start_time > rospy.Time(0):
                 msg = Twist()
                 msg.linear.x = CollideRobotServer.CMD_VEL_MAGNITUDE
