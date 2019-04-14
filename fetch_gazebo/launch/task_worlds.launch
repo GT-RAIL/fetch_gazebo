@@ -22,11 +22,11 @@
 
   <!-- TODO: When we move to Melodic these arguments that are currently handled
   by a script should be removed in favour of $(eval ...) expressions -->
-  <arg name="pickup_none" default="true" />
-  <arg name="pickup_cluttered" default="false" />
-  <arg name="pickup_empty" default="false" />
-  <arg name="place_none" default="true" />
-  <arg name="place_cluttered" default="false" />
+  <arg name="todo_pickup_none" default="true" />
+  <arg name="todo_pickup_cluttered" default="false" />
+  <arg name="todo_pickup_empty" default="false" />
+  <arg name="todo_place_none" default="true" />
+  <arg name="todo_place_cluttered" default="false" />
 
   <!-- Boolean Flags -->
   <arg name="door_blocked" default="false" />
@@ -83,11 +83,11 @@
 
   <!-- If the pickup location must be cluttered, then clutter it up. TODO: With
   Melodic, remember to use eval -->
-  <include file="$(find fetch_gazebo)/launch/include/faults/pickup_cluttered.launch" if="$(arg pickup_cluttered)" />
+  <include file="$(find fetch_gazebo)/launch/include/faults/pickup_cluttered.launch" if="$(arg todo_pickup_cluttered)" />
 
   <!-- If the pickup location must be cluttered, then clutter it up TODO: With
   Melodic, remember to use eval -->
-  <include file="$(find fetch_gazebo)/launch/include/faults/place_cluttered.launch" if="$(arg place_cluttered)" />
+  <include file="$(find fetch_gazebo)/launch/include/faults/place_cluttered.launch" if="$(arg todo_place_cluttered)" />
 
   <!-- If the door must be blocked, then block it -->
   <include file="$(find fetch_gazebo)/launch/include/faults/door_blocked.launch" if="$(arg door_blocked)">
@@ -104,7 +104,7 @@
 
   <!-- Finally, spawn the objects to be picked up, unless the scene needs to be
   empty. TODO: Update the call with melodic -->
-  <include file="$(find fetch_gazebo)/launch/include/faults/object_location_$(arg object_location_idx).launch" unless="$(arg pickup_empty)">
+  <include file="$(find fetch_gazebo)/launch/include/faults/object_location_$(arg object_location_idx).launch" unless="$(arg todo_pickup_empty)">
     <arg name="object_name" value="$(arg object_name)" />
     <arg name="object_location_idx" value="$(arg object_location_idx" />
   </include>
