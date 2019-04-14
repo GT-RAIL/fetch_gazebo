@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- TODO: With Melodic, we can probably use the latest SDF version -->
+  <!-- Spawn the bowls to clutter the place up -->
+  <node name="bowl1_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.50 -y 2.92 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl1" />
+  <node name="bowl2_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.30 -y 2.92 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl2" />
+  <node name="bowl3_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.70 -y 2.92 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl3" />
+  <node name="bowl4_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.50 -y 2.72 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl4" />
+  <node name="bowl5_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.50 -y 3.12 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl5" />
+  <node name="bowl6_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.30 -y 3.12 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl6" />
+  <node name="bowl7_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.30 -y 2.72 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl7" />
+  <node name="bowl8_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.70 -y 3.12 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl8" />
+  <node name="bowl9_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -5.70 -y 2.72 -z 0.83 -R 0 -P 0 -Y 0 -file $(env HOME)/.gazebo/models/bowl/model-1_4.sdf -model bowl9" />
+
+</launch>

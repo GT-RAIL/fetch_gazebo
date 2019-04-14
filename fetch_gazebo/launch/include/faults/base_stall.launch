@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+  <!-- TODO: With melodic, update this script to take arguments and operate upon
+  them. For now, these do nothing -->
+  <arg name="x" default="0.0" />
+  <arg name="y" default="0.0" />
+  <arg name="a" default="0.0" />
+
   <!-- Spawn the cube that will stall the robot -->
   <node name="stall_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
         args="-sdf -x 0.35 -y 0.05 -z 0 -R 0 -P 1.57 -Y 1.57 -file $(find fetch_gazebo)/models/demo_cube/model.sdf -model dcube1" />

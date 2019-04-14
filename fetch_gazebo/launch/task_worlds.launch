@@ -20,6 +20,14 @@
   <arg name="pickup_distraction" default="none" />
   <arg name="place_distraction" default="none" />
 
+  <!-- TODO: When we move to Melodic these arguments that are currently handled
+  by a script should be removed in favour of $(eval ...) expressions -->
+  <arg name="pickup_none" default="true" />
+  <arg name="pickup_cluttered" default="false" />
+  <arg name="pickup_empty" default="false" />
+  <arg name="place_none" default="true" />
+  <arg name="place_cluttered" default="false" />
+
   <!-- Boolean Flags -->
   <arg name="door_blocked" default="false" />
   <arg name="door_block_invisible" default="false" />
@@ -35,10 +43,6 @@
   <arg name="initial_pose_x" default="0.0" />
   <arg name="initial_pose_y" default="0.0" />
   <arg name="initial_pose_a" default="0.0" />
-
-  <!-- Derived task zone -->
-  <arg name="zone"
-       value="$(arg object_name)_$(arg object_location_idx)_$(arg pickup_distraction)_$(arg place_distraction)_$(arg door_blocked)_$(arg door_block_invisible)_$(arg base_stalled)_zone.sdf" />
 
   <!-- Set the simulation params -->
   <group ns="/bag_context">
@@ -63,7 +67,7 @@
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="headless" value="$(arg headless)"/>
-    <arg name="world_name" value="$(find fetch_gazebo)/worlds/$(arg zone)"/>
+    <arg name="world_name" value="$(find fetch_gazebo)/worlds/test_fault_zone.sdf"/>
   </include>
 
   <!-- Oh, you wanted a robot? -->
@@ -77,9 +81,33 @@
     <arg name="yaw" value="$(arg initial_pose_a)" unless="$(arg incorrect_map)" />
   </include>
 
+  <!-- If the pickup location must be cluttered, then clutter it up. TODO: With
+  Melodic, remember to use eval -->
+  <include file="$(find fetch_gazebo)/launch/include/faults/pickup_cluttered.launch" if="$(arg pickup_cluttered)" />
+
+  <!-- If the pickup location must be cluttered, then clutter it up TODO: With
+  Melodic, remember to use eval -->
+  <include file="$(find fetch_gazebo)/launch/include/faults/place_cluttered.launch" if="$(arg place_cluttered)" />
+
+  <!-- If the door must be blocked, then block it -->
+  <include file="$(find fetch_gazebo)/launch/include/faults/door_blocked.launch" if="$(arg door_blocked)">
+    <arg name="door_block_invisible" value="$(arg door_block_invisible)" />
+  </include>
+
   <!-- If the base must be stalled, then spawn the stalling cube.
   TODO: With melodic, we can parameterize this -->
-  <include file="$(find fetch_gazebo)/launch/include/base_stall.launch.xml" if="$(arg base_stalled)" />
+  <include file="$(find fetch_gazebo)/launch/include/faults/base_stall.launch" if="$(arg base_stalled)">
+    <arg name="x" value="$(arg initial_pose_x)" />
+    <arg name="y" value="$(arg initial_pose_y)" />
+    <arg name="a" value="$(arg initial_pose_a)" />
+  </include>
+
+  <!-- Finally, spawn the objects to be picked up, unless the scene needs to be
+  empty. TODO: Update the call with melodic -->
+  <include file="$(find fetch_gazebo)/launch/include/faults/object_location_$(arg object_location_idx).launch" unless="$(arg pickup_empty)">
+    <arg name="object_name" value="$(arg object_name)" />
+    <arg name="object_location_idx" value="$(arg object_location_idx" />
+  </include>
 
   <!-- We also want to mess with the robot now and then -->
   <node name="look_away_server" pkg="fetch_gazebo" type="look_away.py" if="$(arg head_moved)" />

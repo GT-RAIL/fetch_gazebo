@@ -3,12 +3,12 @@
   <arg name="object_name" />
 
   <!-- TODO: With melodic, we can use this -->
-  <arg name="object_location_idx" default="0" />
+  <arg name="object_location_idx" default="1" />
 
   <!-- Spawn the objects for the task -->
   <node name="object1_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-sdf -x 3.80 -y 3.15 -z 2.0 -R 0 -P 0 -Y 0 -file $(find fetch_gazebo)/models/$(arg object_name)/model.sdf -model cube1" />
+        args="-sdf -x 3.80 -y 3.15 -z 2.0 -R 0 -P 1.57 -Y 0 -file $(find fetch_gazebo)/models/$(arg object_name)/model.sdf -model cube1" />
 
   <node name="object2_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-sdf -x -3.34 -y -3.85 -z 0.87 -R 1.57 -P 0 -Y 0 -file $(find fetch_gazebo)/models/$(arg object_name)/model.sdf -model cube2" />
+        args="-sdf -x -3.24 -y -4.05 -z 0.87 -R 1.57 -P 0 -Y 0.78 -file $(find fetch_gazebo)/models/$(arg object_name)/model.sdf -model cube2" />
 </launch>

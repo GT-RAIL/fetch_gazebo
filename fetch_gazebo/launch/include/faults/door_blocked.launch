@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="door_block_invisible" default="false" />
+
+  <!-- Spawn the cube that will stall the robot -->
+  <node name="stall_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -0.21 -y 2.22 -z 0.3 -R 0 -P 0 -Y 0 -file $(find fetch_gazebo)/models/distractor_cube/model.sdf -model dcube1"
+        unless="$(arg door_block_invisible)" />
+  <node name="stall_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x -0.21 -y 2.22 -z 0.6 -R 0 -P 0 -Y 0 -file $(find fetch_gazebo)/models/distractor_cube/model.sdf -model dcube1"
+        if="$(arg door_block_invisible)" />
+</launch>
