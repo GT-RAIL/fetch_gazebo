@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version='1.4'>
-  <model name="demo_cube">
+  <model name="cube">
       <static>0</static>
       <link name='link'>
         <inertial>
