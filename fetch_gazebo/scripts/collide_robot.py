@@ -21,7 +21,7 @@ class CollideRobotServer(object):
     Move forward and collide the robot when departing
     """
 
-    COLLISION_ACTION_NAME = 'setup'
+    COLLISION_ACTION_NAME = 'easy'
     COLLISION_LINEAR_DURATION = rospy.Duration(13.0 + (2 * np.random.rand()))
     COLLISION_ANGULAR_DURATION = rospy.Duration(2.0 + (4 * np.random.rand()))
 

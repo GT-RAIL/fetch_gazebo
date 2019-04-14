@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="object_name" />
+
+  <!-- Spawn the cube that will stall the robot -->
+  <node name="stall_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -x 0.35 -y 0.05 -z 0 -R 0 -P 1.57 -Y 1.57 -file $(find fetch_gazebo)/models/$(arg object_name)/model.sdf -model dcube1" />
+</launch>

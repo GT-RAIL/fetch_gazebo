@@ -75,7 +75,11 @@
     <arg name="x" value="$(arg initial_pose_x)" unless="$(arg incorrect_map)" />
     <arg name="y" value="$(arg initial_pose_y)" unless="$(arg incorrect_map)" />
     <arg name="yaw" value="$(arg initial_pose_a)" unless="$(arg incorrect_map)" />
- </include>
+  </include>
+
+  <!-- If the base must be stalled, then spawn the stalling cube.
+  TODO: With melodic, we can parameterize this -->
+  <include file="$(find fetch_gazebo)/launch/include/base_stall.launch.xml" if="$(arg base_stalled)" />
 
   <!-- We also want to mess with the robot now and then -->
   <node name="look_away_server" pkg="fetch_gazebo" type="look_away.py" if="$(arg head_moved)" />
