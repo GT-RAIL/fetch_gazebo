@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="couch2">
+    <link name="link">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://couch2/meshes/couch2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <static>1</static>
+  </model>
+</sdf>

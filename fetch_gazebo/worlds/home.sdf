@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://couch2</uri>
+      <name>couch</name>
+      <pose>-1.287770 0.958827 -0.08 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model:dining_table//</uri>
+      <name>dining</name>
+      <pose>12.7067 10.807 0 0 0.0 0</pose>
+    </include>
+    <include>
+      <uri>model:kitchen_counter//</uri>
+      <name>kitchen</name>
+      <pose>3.773220 2.258360 0.75 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model:center_table//</uri>
+      <name>table</name>
+      <pose>-3.057210 2.404120 0.0 0 0 0</pose>
+    </include>
+  </world>
+</sdf>
