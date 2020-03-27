@@ -718,10 +718,10 @@
     </library_effects>
     <library_images>
         <image id="ID85">
-            <init_from>model/DefaultMaterial~1.jpg</init_from>
+            <init_from>material_47.jpg</init_from>
         </image>
         <image id="ID95">
-            <init_from>model/material_47.jpg</init_from>
+            <init_from>material_47.jpg</init_from>
         </image>
     </library_images>
     <scene>

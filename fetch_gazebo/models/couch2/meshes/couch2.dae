@@ -1006,7 +1006,7 @@
     </library_effects>
     <library_images>
         <image id="ID22">
-            <init_from>model/Metal_Corrogated_Shiny.jpg</init_from>
+            <init_from>Metal_Corrogated_Shiny.jpg</init_from>
         </image>
     </library_images>
     <scene>

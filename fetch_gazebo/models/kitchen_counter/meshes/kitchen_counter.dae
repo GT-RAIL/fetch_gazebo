@@ -5096,16 +5096,16 @@
     </library_effects>
     <library_images>
         <image id="ID217">
-            <init_from>model/__CorrogateShiny_.jpg</init_from>
+            <init_from>__CorrogateShiny_.jpg</init_from>
         </image>
         <image id="ID410">
-            <init_from>model/__CorrogateShiny_1.jpg</init_from>
+            <init_from>__CorrogateShiny_1.jpg</init_from>
         </image>
         <image id="ID569">
-            <init_from>model/Metal_Corrogated_Shiny.jpg</init_from>
+            <init_from>Metal_Corrogated_Shiny.jpg</init_from>
         </image>
         <image id="ID681">
-            <init_from>model/cherry.jpg</init_from>
+            <init_from>cherry.jpg</init_from>
         </image>
     </library_images>
     <scene>
