@@ -96,6 +96,74 @@
       <static>1</static>
       <pose frame=''>-3 5 0 0 -0 1.57</pose>
     </model>
+    <model name='spatula'>
+      <link name='link'>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://spatula/meshes/spatula.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='bottle'>
+      <link name='link'>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://bottle/meshes/bottle.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='cup'>
+      <link name='link'>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://cup/meshes/cup.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='bowl'>
+      <link name='link'>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://bowl/meshes/bowl.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
     <model name='kitchen'>
       <link name='link'>
         <visual name='visual'>
@@ -152,10 +220,20 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>2429 583000000</sim_time>
-      <real_time>701 195833953</real_time>
-      <wall_time>1585270848 684226806</wall_time>
-      <iterations>699253</iterations>
+      <sim_time>2921 649000000</sim_time>
+      <real_time>268 669363248</real_time>
+      <wall_time>1585282033 66514732</wall_time>
+      <iterations>267120</iterations>
+      <model name='bowl'>
+        <pose frame=''>2.22291 -1.43533 0.817958 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>2.22291 -1.43533 0.817958 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='couch'>
         <pose frame=''>-0.105698 0.944063 0.057897 0 0.003922 1.57431</pose>
         <scale>1 1 1</scale>
@@ -196,6 +274,16 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='spatula'>
+        <pose frame=''>2.29824 0.118024 0.590611 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>2.29824 0.118024 0.590611 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='table'>
         <pose frame=''>0.581075 2.46567 0 0 0 -1.55388</pose>
         <scale>1 1 1</scale>
@@ -212,7 +300,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-1.35453 8.04658 2.55474 0 0.208 -1.46159</pose>
+        <pose frame=''>-3.39027 -0.602663 3.20702 0 0.508 -0.308774</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
