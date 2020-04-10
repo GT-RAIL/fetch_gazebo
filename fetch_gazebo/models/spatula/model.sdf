@@ -1,17 +1,45 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <model name="spatula">
+  <pose>2.25 -0.73 .9 0 0 -3</pose>
+  <static>false</static>
     <link name="link">
+      <inertial>
+	<mass>0.4</mass>
+	<pose>0.9 0.3 0 0 0 0</pose>
+        <inertia>
+          <ixx>0.00055575</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00055575</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001755</izz>
+	</inertia>
+      </inertial>
       <collision name="collision">
-        <pose>3.668824 1.174929 0.696672 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://spatula/meshes/spatula.dae</uri>
           </mesh>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>10000000.0</kp>
+              <kd>1.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.1</max_vel>
+            </ode>
+          </contact>
+        </surface>
       </collision>
       <visual name="visual">
-        <pose>3.668824 1.174929 0.696672 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://spatula/meshes/spatula.dae</uri>
@@ -19,6 +47,5 @@
         </geometry>
       </visual>
     </link>
-    <static>1</static>
   </model>
 </sdf>

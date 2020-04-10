@@ -14,13 +14,55 @@
       <uri>model://center_table</uri>
     </include>
     <include>
-      <uri>model://dining_table1</uri>
+      <uri>model://cafe_table1</uri>
+    </include>
+    <include>
+      <uri>model://cafe_table2</uri>
     </include>
     <include>
       <uri>model://couch2</uri>
     </include>
     <include>
       <uri>model://spatula</uri>
+    </include>
+    <include>
+      <uri>model://bottle</uri>
+    </include>
+    <include>
+      <uri>model://cup</uri>
+    </include>
+    <include>
+      <uri>model://bowl1</uri>
+    </include>
+    <include>
+      <uri>model://saucepan1</uri>
+    </include>
+    <include>
+      <uri>model://cereal_box</uri>
+    </include>
+    <include>
+      <uri>model://milk_carton</uri>
+    </include>
+    <include>
+      <uri>model://plate</uri>
+    </include>
+    <include>
+      <uri>model://newspaper</uri>
+    </include> 
+    <include>
+      <uri>model://coke_can_counter</uri>
+    </include>
+    <include>
+      <uri>model://coke_can2</uri>
+    </include>
+    <include>
+      <uri>model://spice_rack</uri>
+    </include>
+    <include>
+      <uri>model://saucepan_counter</uri>
+    </include>
+    <include>
+      <uri>model://Home_Environment_Walls</uri>
     </include>
   </world>
 </sdf>

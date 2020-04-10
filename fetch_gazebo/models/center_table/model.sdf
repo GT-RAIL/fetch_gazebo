@@ -1,9 +1,17 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <model name="center_table">
+    <pose>2.759101 2.784628 0 0 0 1.562971</pose>
     <link name="link">
      <collision name="collision">
-        <pose>2.759101 2.784628 0 0 0 1.562971</pose>
+        <pose>0.6 0.385 0.385 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.2 0.8 0.04</size>
+           </box>
+        </geometry>
+      </collision>
+      <collision name="collision">
         <geometry>
           <mesh>
             <uri>model://center_table/meshes/center_table.dae</uri>
@@ -11,7 +19,6 @@
         </geometry>
       </collision>
       <visual name="visual">
-        <pose>2.759101 2.784628 0 0 0 1.562971</pose>
         <geometry>
           <mesh>
             <uri>model://center_table/meshes/center_table.dae</uri>

@@ -3,13 +3,22 @@
   <model name="kitchen_counter">
     <link name="link">
      <collision name="collision">
-        <pose>3.5 -1.5 0 0 0 1.571984</pose>
+        <pose>2 -1.1 0.8 0 0 1.571984</pose>
         <geometry>
-          <mesh>
+ 	  <box>
+            <size>0.80 3 0.04</size>
+           </box>
+        </geometry>
+      </collision>
+      <collision name="collision">
+         <pose>3.5 -1.5 0 0 0 1.571984</pose>
+        <geometry>
+ 	  <mesh>
             <uri>model://kitchen_counter/meshes/kitchen_counter.dae</uri>
           </mesh>
         </geometry>
       </collision>
+
       <visual name="visual">
         <pose>3.5 -1.5 0 0 0 1.571984</pose>
         <geometry>
@@ -19,6 +28,6 @@
         </geometry>
       </visual>
     </link>
-    <static>1</static>
+    <static>true</static>
   </model>
 </sdf>
