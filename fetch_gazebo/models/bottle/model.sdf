@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <model name="bottle">
-  <pose>4.6 2.2 0.8 0 0 0</pose>
+  <pose>4.6 1.68 0.79 0 0 0</pose>
     <link name="link">
      <inertial>
 	<mass>0.39</mass>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="saucepan_counter">
+    <pose>1.942357 -1.078078 0.856928 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <inertial>
+	<mass>0.39</mass>
+	<pose>0 0 0.02 0 0 0</pose>
+        <inertia>
+          <ixx>0.00055575</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00055575</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001755</izz>
+	</inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://saucepan_counter/meshes/saucepan_counter.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>10000000.0</kp>
+              <kd>1.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.1</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://saucepan_counter/meshes/saucepan_counter.dae</uri>
+          </mesh>
+        </geometry>
+	 <material>
+            <ambient>0.3 0 0 0.3</ambient>
+	    <diffuse>1.0 1 0.5 1</diffuse>
+	    <specular>0.8 0.8 0.8 1</specular>
+	    <emissive>0 0 0 0</emissive>
+	  </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
+
